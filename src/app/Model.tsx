@@ -3,8 +3,11 @@ import { Html} from "@react-three/drei"
 import { GLTFLoader, GLTF } from "three/examples/jsm/loaders/GLTFLoader"
 import { VRMLoaderPlugin } from "@pixiv/three-vrm"
 
+interface ModelProps {
+  url: string;
+}
 
-const Model: FC = () => {
+const Model: FC<ModelProps> = ({url}: ModelProps) => {
   const [gltf, setGltf] = useState<GLTF>()
   const [progress, setProgress] = useState<number>(0)
 
@@ -16,7 +19,7 @@ const Model: FC = () => {
       })
 
       loader.load(
-        "/models/AliciaSolid.vrm",
+        url,
         (tmpGltf) => {
           setGltf(tmpGltf)
           console.log("loaded")
@@ -33,7 +36,7 @@ const Model: FC = () => {
         }
       )
     }
-  }, [gltf])
+  }, [gltf, url])
 
   return (
     <>
