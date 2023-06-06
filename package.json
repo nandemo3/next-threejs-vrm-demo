@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "next build && next export",
+    "serve": "yarn export && serve ./out"
   },
   "dependencies": {
     "@emotion/react": "^11.11.0",
@@ -27,5 +29,7 @@
     "three": "^0.153.0",
     "typescript": "5.0.4"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "serve": "^14.2.0"
+  }
 }
